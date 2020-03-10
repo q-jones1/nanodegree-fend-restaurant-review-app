@@ -12,7 +12,7 @@
       padding: 10px 10px 16px;
   }
   #restaurant-container {
-    padding: 0px 5px 30px;
+    padding: 0 5px 30px;
   }
   #restaurant-name {
     font-size: 15pt;
@@ -23,6 +23,26 @@
   }
   #reviews-container h2 {
     font-size: 20pt;
+  }
+}
+
+@media screen and (max-width: 392px) {
+  .inside #map-container {
+    height: 300px;
+  }
+  .inside #map {
+    height: 300px;
+  }
+  #restaurant-container {
+  	height: 665px;
+  }
+}
+
+/* See main.js + restaurant_info.js for responsive image code that helps with responsiveness */
+@media screen and (min-width: 450px) {
+  #restaurant-container {
+    width: 568px;
+  	height: 50%;
   }
 }
 
