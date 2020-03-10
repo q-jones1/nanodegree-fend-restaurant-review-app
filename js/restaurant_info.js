@@ -129,7 +129,7 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
  */
 fillReviewsHTML = (reviews = self.restaurant.reviews) => {
   const container = document.getElementById('reviews-container');
-  const title = document.createElement('h2');
+  const title = document.createElement('h3');
   title.innerHTML = 'Reviews';
   container.appendChild(title);
 
@@ -155,7 +155,7 @@ createReviewHTML = (review) => {
   div.id = 'reviews-list-header';
   li.appendChild(div);
 
-  const name = document.createElement('h3');
+  const name = document.createElement('h4');
   name.innerHTML = review.name;
   name.id = 'reviews-list-author';
   div.appendChild(name);
