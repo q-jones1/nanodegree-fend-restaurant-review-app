@@ -155,12 +155,12 @@ fillRestaurantsHTML = (restaurants = self.restaurants) => {
 /**
  * Create restaurant HTML.
  */
-createRestaurantHTML = (restaurant) => {
+ createRestaurantHTML = (restaurant) => {
   const li = document.createElement('li');
   const picture = document.createElement('picture');
   li.append(picture);
   const source = document.createElement('source');
-  source.media = "(max-width: 450px)";
+  source.media = "(max-width: 450px)"
   source.srcset = DBHelper.imageUrl2ForRestaurant(restaurant);
   picture.append(source);
   const image = document.createElement('img');
@@ -169,7 +169,7 @@ createRestaurantHTML = (restaurant) => {
   image.alt = 'a picture of the restaurant';
   picture.append(image);
 
-  const name = document.createElement('h1');
+  const name = document.createElement('h3');
   name.innerHTML = restaurant.name;
   li.append(name);
 
