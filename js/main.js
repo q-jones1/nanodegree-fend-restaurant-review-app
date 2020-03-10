@@ -2,6 +2,19 @@
 https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/tabIndex - (udacity supplied project link) - for learning how to add tabindex dynamically via javascript.
 */
 
+/**
+  * Register service worker.
+  */
+function registerServiceWorker () {
+  navigator.serviceWorker.register('./sw1.js').then(function () {
+    console.log('Registration worked!');
+  }).catch(function () {
+    console.log('Registration failed');
+  });
+}
+
+registerServiceWorker();
+
 let restaurants,
   neighborhoods,
   cuisines
