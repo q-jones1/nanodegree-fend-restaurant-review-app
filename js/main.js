@@ -95,7 +95,7 @@ initMap = () => {
         scrollWheelZoom: false
       });
   L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.jpg70?access_token={mapboxToken}', {
-    mapboxToken: '<your MAPBOX API KEY HERE>',
+    mapboxToken: 'pk.eyJ1IjoicWpvbmVzZ20iLCJhIjoiY2p6c2thdGdiMWFtbjNubzBneTR5bGYwbiJ9.697uypJw_Ddpkz6yBBpOwg',
     maxZoom: 18,
     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
       '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
@@ -105,18 +105,6 @@ initMap = () => {
 
   updateRestaurants();
 }
-/* window.initMap = () => {
-  let loc = {
-    lat: 40.722216,
-    lng: -73.987501
-  };
-  self.map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 12,
-    center: loc,
-    scrollwheel: false
-  });
-  updateRestaurants();
-} */
 
 /**
  * Update page and map for current restaurants.
@@ -172,13 +160,13 @@ fillRestaurantsHTML = (restaurants = self.restaurants) => {
 /**
  * Create restaurant HTML.
  */
- createRestaurantHTML = (restaurant) => {
+createRestaurantHTML = (restaurant) => {
   const li = document.createElement('li');
   li.tabIndex = 0;
   const picture = document.createElement('picture');
   li.append(picture);
   const source = document.createElement('source');
-  source.media = "(max-width: 450px)"
+  source.media = "(max-width: 450px)";
   source.srcset = DBHelper.imageUrl2ForRestaurant(restaurant);
   picture.append(source);
   const image = document.createElement('img');
@@ -222,13 +210,3 @@ addMarkersToMap = (restaurants = self.restaurants) => {
   });
 
 }
-/* addMarkersToMap = (restaurants = self.restaurants) => {
-  restaurants.forEach(restaurant => {
-    // Add marker to the map
-    const marker = DBHelper.mapMarkerForRestaurant(restaurant, self.map);
-    google.maps.event.addListener(marker, 'click', () => {
-      window.location.href = marker.url
-    });
-    self.markers.push(marker);
-  });
-} */
