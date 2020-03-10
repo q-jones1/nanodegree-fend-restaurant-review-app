@@ -22,7 +22,7 @@ initMap = () => {
         scrollWheelZoom: false
       });
       L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.jpg70?access_token={mapboxToken}', {
-        mapboxToken: '<your MAPBOX API KEY HERE>',
+        mapboxToken: 'pk.eyJ1IjoicWpvbmVzZ20iLCJhIjoiY2p6c2thdGdiMWFtbjNubzBneTR5bGYwbiJ9.697uypJw_Ddpkz6yBBpOwg',
         maxZoom: 18,
         attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
           '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
@@ -34,22 +34,6 @@ initMap = () => {
     }
   });
 }
-
-/* window.initMap = () => {
-  fetchRestaurantFromURL((error, restaurant) => {
-    if (error) { // Got an error!
-      console.error(error);
-    } else {
-      self.map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 16,
-        center: restaurant.latlng,
-        scrollwheel: false
-      });
-      fillBreadcrumb();
-      DBHelper.mapMarkerForRestaurant(self.restaurant, self.map);
-    }
-  });
-} */
 
 /**
  * Get current restaurant from page URL.
@@ -90,6 +74,7 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
 
   const image = document.getElementById('restaurant-img');
   image.src = DBHelper.imageUrl1ForRestaurant(restaurant);
+  image.alt = 'a picture of the restaurant';
 
   const image2 = document.getElementById('restaurant-img2');
   image2.media="(max-width: 450px)";
@@ -110,23 +95,23 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
 /**
  * Create restaurant operating hours HTML table and add it to the webpage.
  */
- fillRestaurantHoursHTML = (operatingHours = self.restaurant.operating_hours) => {
-   const hours = document.getElementById('restaurant-hours');
-   for (let key in operatingHours) {
-     const row = document.createElement('tr');
-     row.tabIndex = 0;
+fillRestaurantHoursHTML = (operatingHours = self.restaurant.operating_hours) => {
+  const hours = document.getElementById('restaurant-hours');
+  for (let key in operatingHours) {
+    const row = document.createElement('tr');
+    row.tabIndex = 0;
 
-     const day = document.createElement('td');
-     day.innerHTML = key;
-     row.appendChild(day);
+    const day = document.createElement('td');
+    day.innerHTML = key;
+    row.appendChild(day);
 
-     const time = document.createElement('td');
-     time.innerHTML = operatingHours[key];
-     row.appendChild(time);
+    const time = document.createElement('td');
+    time.innerHTML = operatingHours[key];
+    row.appendChild(time);
 
-     hours.appendChild(row);
-   }
- }
+    hours.appendChild(row);
+  }
+}
 
 /**
  * Create all reviews HTML and add them to the webpage.
@@ -158,22 +143,22 @@ createReviewHTML = (review) => {
   const li = document.createElement('li');
   li.tabIndex = 0;
   const div = document.createElement('div');
-  div.id = 'reviews-list-header';
+  div.className = 'review-header';
   li.appendChild(div);
 
   const name = document.createElement('h4');
   name.innerHTML = review.name;
-  name.id = 'reviews-list-author';
+  name.className = 'review-author';
   div.appendChild(name);
 
   const date = document.createElement('span');
   date.innerHTML = review.date;
-  date.id = 'reviews-list-date';
+  date.className = 'review-date';
   div.appendChild(date);
 
   const rating = document.createElement('div');
   rating.innerHTML = `Rating: ${review.rating}`;
-  rating.id = 'reviews-list-rating';
+  rating.className = 'review-rating';
   li.appendChild(rating);
 
   const comments = document.createElement('p');
