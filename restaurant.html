@@ -1,3 +1,12 @@
+<!-- Attribution:
+     https://code.google.com/archive/p/normalize-css/ - understanding normailse css.
+     https://developers.google.com/web/fundamentals/accessibility/how-to-review
+     https://developers.google.com/web/fundamentals/accessibility/focus/
+     https://developer.mozilla.org/en-US/docs/Web/CSS/Layout_cookbook/Breadcrumb_Navigation - understanding
+     https://stackoverflow.com/questions/25326699/proper-aria-handling-of-breadcrumb-navigation/25327035 - understanding now to do accessibility for it.
+     https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/List_role - for appreciation of the default semantics offered with ol elements.
+   -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,12 +28,12 @@
     <!-- Beginning nav -->
     <nav>
       <h1><a href="/">Restaurant Reviews</a></h1>
+      <!-- Beginning breadcrumb -->
+      <ol aria-label="Breadcrumb" id="breadcrumb">
+        <li><a href="/">Home</a></li>
+      </ol>
+      <!-- End breadcrumb -->
     </nav>
-    <!-- Beginning breadcrumb -->
-    <ul id="breadcrumb" >
-      <li><a href="/">Home</a></li>
-    </ul>
-    <!-- End breadcrumb -->
     <!-- End nav -->
   </header>
   <!-- End header -->
@@ -33,7 +42,7 @@
   <main id="maincontent">
     <!-- Beginning map -->
     <section id="map-container">
-      <div id="map"></div>
+      <div aria-label="Map" role="application" id="map"></div>
     </section>
     <!-- End map -->
     <!-- Beginning restaurant -->
@@ -43,14 +52,14 @@
         <source id="restaurant-img2">
         <img id="restaurant-img">
       </picture>
-      <p id="restaurant-cuisine"></p>
-      <p id="restaurant-address"></p>
-      <table id="restaurant-hours"></table>
+      <p aria-label="Restaurant-cuisine" id="restaurant-cuisine"></p>
+      <p aria-label="Restaurant-address" id="restaurant-address"></p>
+      <table aria-label="Restaurant-hours" id="restaurant-hours"></table>
     </section>
     <!-- end restaurant -->
     <!-- Beginning reviews -->
     <section id="reviews-container">
-      <ul id="reviews-list"></ul>
+      <ol aria-label="reviews-list" id="reviews-list"></ol>
     </section>
     <!-- End reviews -->
   </main>
