@@ -1,3 +1,7 @@
+/* Attribution:
+https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/tabIndex - (udacity supplied project link) - for learning how to add tabindex dynamically via javascript.
+*/
+
 let restaurants,
   neighborhoods,
   cuisines
@@ -157,6 +161,7 @@ fillRestaurantsHTML = (restaurants = self.restaurants) => {
  */
  createRestaurantHTML = (restaurant) => {
   const li = document.createElement('li');
+  li.tabIndex = 0;
   const picture = document.createElement('picture');
   li.append(picture);
   const source = document.createElement('source');
