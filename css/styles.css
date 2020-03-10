@@ -179,6 +179,9 @@ nav h1 a {
 
 /* ====================== Restaurant Details ====================== */
 .inside header {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
 	height: 120px;
   width: 100%;
 	position: fixed;
@@ -192,7 +195,7 @@ nav h1 a {
 .inside #map-container {
   height: 400px;
   width: 100%;
-	padding: 130px 0 0;
+	padding: 120px 0 0;
 }
 .inside #map {
   background-color: #ccc;
@@ -220,6 +223,7 @@ nav h1 a {
 }
 #restaurant-img {
 	width: 100%;
+	height: 100%;
 }
 #restaurant-address {
   font-size: 12pt;
